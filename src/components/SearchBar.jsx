@@ -8,8 +8,7 @@ import "../styles/SearchBar.css";
 function SearchBar() {
   const [query, setQuery] = useState("");
   // const [isLoading, setIsLoading] = useState(false);
-  const { githubUser, isLoading, error, handleSearchGithubUser } =
-    useGithubUser();
+  const { isLoading, handleSearchGithubUser } = useGithubUser();
 
   function handleQueryChange(e) {
     setQuery(e.target.value);

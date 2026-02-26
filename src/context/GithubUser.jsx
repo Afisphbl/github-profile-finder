@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext } from "react";
 
 const GithubUserContext = createContext();
 const GITHUB_URL = "https://api.github.com";

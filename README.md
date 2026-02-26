@@ -1,70 +1,190 @@
-# Getting Started with Create React App
+# 🚀 GitHub User Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern and responsive GitHub User Search App built with React, featuring real-time search, debouncing, dark/light theme toggle, skeleton loaders, and GitHub API integration.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- 🔍 Real-time GitHub user search with debounce optimization
 
-### `npm start`
+- 🌓 Light / Dark theme toggle (persistent using localStorage)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ⚡ Fast & responsive UI with skeleton loading animations
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 📦 Repository listing with sorting options
 
-### `npm test`
+- 👥 Followers preview with Load More pagination
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🛠 Context API for global state management
 
-### `npm run build`
+- 🎨 Modern, clean UI design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ❌ Graceful error handling
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🖼️ Preview
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Example:
 
-### `npm run eject`
+![App Preview](./screenshots/preview.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🌙 Dark Mode
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Dark Mode](./screenshots/darkMode.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### ☀️ Light Mode
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Light Mode](./screenshots/ligthMode.png)
 
-## Learn More
+### ⏳ Loading
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Loading](./screenshots/loading.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🚫 Error Handle
 
-### Code Splitting
+![Error Handle](./screenshots/errorhandling.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 📱 Mobile View
 
-### Analyzing the Bundle Size
+![Mobile View](./screenshots/mobile-view.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🧱 Tech Stack
 
-### Making a Progressive Web App
+- React 18
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Context API
 
-### Advanced Configuration
+- GitHub REST API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Lucide Icons
 
-### Deployment
+- CSS3 (Modern UI + Animations)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📂 Project Structure
 
-### `npm run build` fails to minify
+````text
+src/
+│
+├── components/
+│   ├── Button.jsx
+│   ├── ErrorMessage.jsx
+│   ├── FollowerList.jsx
+│   ├── ProfileCard.jsx
+│   ├── RepoList.jsx
+│   ├── SearchBar.jsx
+│   └── SkeletonLoader.jsx
+│
+├── context/
+│   ├── GithubUser.jsx
+│   └── ThemeContext.jsx
+│
+├── hooks/
+│   └── useDebounce.js
+│
+├── styles/
+│   └── *.css
+│
+├── App.jsx
+└── main.jsx
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/your-username/github-user-explorer.git
+````
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Start development server
+
+```bash
+npm start
+```
+
+Open in browser:
+
+```bash
+http://localhost:3000
+```
+
+## 🧠 Core Concepts Used
+
+- React Context API – global state management
+
+- Custom Hooks – debouncing logic
+
+- Conditional Rendering – loaders & error handling
+
+- Theme System – CSS variables + localStorage
+
+- Reusable Components
+
+## 🛠 Key Functionalities Explained
+
+🔹 Debounced Search
+
+Prevents unnecessary API calls while typing.
+
+🔹 Theme Persistence
+
+User theme is saved in localStorage.
+
+🔹 Skeleton Loading UI
+
+Improves perceived performance.
+
+🔹 Repository Sorting
+
+Sort repos by:
+
+- Recently updated
+
+- Most starred
+
+## 🌍 API Reference
+
+GitHub REST API
+
+```bash
+https://api.github.com/users/{username}
+https://api.github.com/users/{username}/repos
+https://api.github.com/users/{username}/followers
+```
+
+## 🧪 Example Usage
+
+```bash
+Search → "afisphbl"
+```
+
+## 🚀 Future Improvements
+
+- 🔐 Authentication with GitHub OAuth
+
+- 📊 Repo analytics charts
+
+- 💾 Favorite profiles
+
+- 🌎 Multi-language support
+
+## 🌍 Live Demo
+
+🔗 **Visit the App:** https://your-live-link-here
+
+## 👨‍💻 Author
+
+Abduselam Seid aka (Afis)
+Frontend Developer — React • JS • UI/UX
+
+🔗 GitHub: https://github.com/afisphbl
+
+## ⭐ Support
+
+If you like this project:
+
+```bash
+Give it a ⭐ on GitHub!
+```
