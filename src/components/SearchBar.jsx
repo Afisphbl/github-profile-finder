@@ -20,7 +20,7 @@ function SearchBar() {
     if (debouncedQuery) {
       handleSearchGithubUser(debouncedQuery);
     }
-  }, [debouncedQuery]);
+  }, [debouncedQuery, handleSearchGithubUser]);
 
   function handleSubmit(e) {
     e.preventDefault();

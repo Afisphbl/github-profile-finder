@@ -19,6 +19,8 @@ function RepoList() {
     if (sortOption === "mostStar") {
       return b.stargazers_count - a.stargazers_count;
     }
+
+    return 0; // ✅ fallback (prevents ESLint error)
   });
   return (
     <section className="repos-container fade-in">

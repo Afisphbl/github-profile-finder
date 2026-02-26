@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext, useCallback } from "react";
 
 const GithubUserContext = createContext();
 const GITHUB_URL = "https://api.github.com";
@@ -10,7 +10,7 @@ export function GithubUser({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  async function handleSearchGithubUser(username) {
+  const handleSearchGithubUser = useCallback(async (username) => {
     if (!username) return;
     setIsLoading(true);
     try {
@@ -50,7 +50,7 @@ export function GithubUser({ children }) {
     } finally {
       setIsLoading(false);
     }
-  }
+  }, []);
 
   return (
     <GithubUserContext.Provider
