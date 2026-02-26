@@ -1,4 +1,10 @@
-import React, { useState, createContext, useContext, useCallback } from "react";
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useCallback,
+  useEffect,
+} from "react";
 
 const GithubUserContext = createContext();
 const GITHUB_URL = "https://api.github.com";
@@ -9,6 +15,21 @@ export function GithubUser({ children }) {
   const [githubFollowers, setGithubFollowers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const clearGithubData = useCallback(() => {
+    setGithubUser(null);
+    setGithubRepos([]);
+    setGithubFollowers([]);
+    setError(null);
+
+    document.title = "GitHub Profile Finder";
+  }, []);
+
+  useEffect(() => {
+    if (githubUser) {
+      document.title = `${githubUser.login} - GitHub Profile`;
+    }
+  }, [githubUser]);
 
   const handleSearchGithubUser = useCallback(async (username) => {
     if (!username) return;
@@ -61,6 +82,7 @@ export function GithubUser({ children }) {
         isLoading,
         error,
         handleSearchGithubUser,
+        clearGithubData,
       }}
     >
       {children}

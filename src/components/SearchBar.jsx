@@ -8,10 +8,14 @@ import "../styles/SearchBar.css";
 function SearchBar() {
   const [query, setQuery] = useState("");
   // const [isLoading, setIsLoading] = useState(false);
-  const { isLoading, handleSearchGithubUser } = useGithubUser();
+  const { isLoading, handleSearchGithubUser, clearGithubData } =
+    useGithubUser();
 
   function handleQueryChange(e) {
-    setQuery(e.target.value);
+    const value = e.target.value.trim();
+    setQuery(value);
+
+    // if (!value) clearGithubData();
   }
 
   const debouncedQuery = useDebounce(query, 500);
@@ -19,8 +23,10 @@ function SearchBar() {
   useEffect(() => {
     if (debouncedQuery) {
       handleSearchGithubUser(debouncedQuery);
+    } else {
+      clearGithubData(); // Safe: clear state when input is empty
     }
-  }, [debouncedQuery, handleSearchGithubUser]);
+  }, [debouncedQuery, handleSearchGithubUser, clearGithubData]);
 
   function handleSubmit(e) {
     e.preventDefault();
