@@ -31,8 +31,8 @@ function App() {
       <main className="main-content">
         <SearchBar />
 
+        {error && <ErrorMessage message={error} />}
         <div className="profile-layout">
-          {error && <ErrorMessage message={error} />}
           {!error && githubUser && !isLoading && (
             <>
               <ProfileCard user={githubUser} />
